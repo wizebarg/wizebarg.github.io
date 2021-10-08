@@ -3,7 +3,7 @@ layout: post
 title: "Web Screening in R"
 subtitle: "Scraping movie data from IMDB with the rvest package"
 date: 2020-01-26 23:45:13 -0400
-background: '/img/posts/01.jpg'
+background: '/img/posts/web-scraping/bg-wonderplace.jpg'
 ---
 
 ## Background
@@ -19,7 +19,7 @@ library(dplyr)
 ```
 
 ## The webpage
-![IMDb page](/img/posts/web scraping/imdb page.png)
+![IMDb page](/img/posts/web scraping/imdb page.jpg)
 
 ## Scrapping the data
 we can now read in the web page as html

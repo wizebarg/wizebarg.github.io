@@ -1,0 +1,34 @@
+I"<h2 id="background">Background</h2>
+<p>Web scraping can be oe of the easiest ways of fetching data from websites that dont have an API or give direct access to their data. This tutorial will cover how to srcape the names, years, ratings, ad synopsis fo the top 100 adventure movies on IMDb.</p>
+
+<h2 id="installing-packages">Installing Packages</h2>
+<p>For the tutorial, I”ll be using two packages: rvest and dplyr. Marke sure you install them and load them in.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install.packages("rvest") 
+install.packages("dplyr")
+library(rvest)
+library(dplyr)
+</code></pre></div></div>
+
+<h2 id="the-webpage">The webpage</h2>
+<p><img src="/img/posts/web scraping/imdb page.jpg" alt="IMDb page" /></p>
+
+<h2 id="scrapping-the-data">Scrapping the data</h2>
+<p>we can now read in the web page as html</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>link = "https://www.indb.com/search/title/?title_type=feature&amp;num_votes=25000,&amp;genres=adventure&amp;sort=user_rating,desc"
+page = read_html(link)
+</code></pre></div></div>
+
+<p>Next we manually scrape each attribute for all the movies at once and convert them to text.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name = page %&gt;%html_nodes(".lister-item-header a") %&gt;% html_text()
+year = page %&gt;%html_nodes(".text-muted.unbold") %&gt;% html_text()
+rating = page %&gt;%html_nodes(".ratings-imdb-rating strong") %&gt;% html_text()
+synopsis = page %&gt;%html_nodes(".ratings-bar+ .text-muted") %&gt;% html_text()
+
+movies = data.frame(name, year, rating, synopsis, stringsAsFactors = FALSE)
+</code></pre></div></div>
+
+<h2 id="writing-to-a-csv">Writing to a .csv</h2>
+<p>Lastly, if we want to save the output, we can write the data to a csv</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>write.csv(movies, "movies.csv")
+</code></pre></div></div>
+:ET
