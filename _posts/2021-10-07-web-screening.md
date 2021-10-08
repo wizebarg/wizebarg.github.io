@@ -19,7 +19,7 @@ library(dplyr)
 ```
 
 ## The webpage
-[//]: # (![IMDb page](/img/posts/web scraping/imdb page.png))
+![IMDb page](/img/posts/web scraping/imdb page.png)
 
 ## Scrapping the data
 we can now read in the web page as html

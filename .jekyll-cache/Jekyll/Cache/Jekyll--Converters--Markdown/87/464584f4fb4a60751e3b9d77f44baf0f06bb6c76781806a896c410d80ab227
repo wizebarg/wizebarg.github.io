@@ -1,4 +1,4 @@
-I"Í<h2 id="background">Background</h2>
+I"<h2 id="background">Background</h2>
 <p>Web scraping can be oe of the easiest ways of fetching data from websites that dont have an API or give direct access to their data. This tutorial will cover how to srcape the names, years, ratings, ad synopsis fo the top 100 adventure movies on IMDb.</p>
 
 <h2 id="installing-packages">Installing Packages</h2>
@@ -10,6 +10,7 @@ library(dplyr)
 </code></pre></div></div>
 
 <h2 id="the-webpage">The webpage</h2>
+<p><img src="/img/posts/web scraping/imdb page.png" alt="IMDb page" /></p>
 
 <h2 id="scrapping-the-data">Scrapping the data</h2>
 <p>we can now read in the web page as html</p>
